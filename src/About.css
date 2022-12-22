@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+}
+.main{
+  /*margin: 0px;*/
+    margin: 10px;
+}
+h1{
+    margin-left: 222px;
+    padding-bottom: 5px;
+    color: #6c89ba;
+}
+.transactions{
+    color: white;
+    display: flex;
+    margin-top: 1px;
+    padding: 10px;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 600px;
+    /*height: 60px;*/
+    background-color: #6c89ba;
+
+}
+
+.dropdown{
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+}
+.list{
+    position: absolute;
+    width: 600px;
+    list-style: none;
+    padding: 5px 20px;
+    margin-top:0px;
+    margin-left: 20px;
+    color: white;
+    font-size: 20px;
+    background-color: #3f4e62;
+}
+
+.show-item {
+    display: flex;
+    border: 1px solid white;
+    margin-left: 20px;
+    width: 600px;
+    /* height: 50px; */
+    margin-top: 0px;
+    background-color: #6666af;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filter{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 600px;
+    height: 140px;
+    margin-left: 20px;
+    background-color: #8db4f6;
+    text-align: center;
+    padding: 40px;
+    /*position: absolute;*/
+}
+.details{
+    text-align: center;
+    display: flex;
+    color: #a5d1ff;
+    width: 96%;
+    padding: 12px;
+}
+.list-2{
+    list-style: none;
+     /*margin-left: 20px;*/
+    color: white;
+    height: 41px;
+    width: 90%;
+    font-size: 20px;
+    background-color: #6666af;
+    border: 1px solid white;
+}
+.details-btn{
+    height: 41px;
+    width: 58px;
+}
+.news{
+    text-align: center;
+    width: 60%;
+    height: 120px;
+    margin-top: -54px;
+    margin-left: 100px;
+}
+.checkbox{
+    display: flex;
+    /*flex-direction: row-reverse;*/
+    justify-content: space-between;
+    width: 600px;
+    height: 40px;
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color: red;
+}
+.years{
+    width: 85%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+.filter-list{
+    margin-top: 0px;
+    width: 600px;
+    /*height: 200px;*/
+    margin-left: 20px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background-color: #6c89ba;
+}
+.filter-li{
+    width: 600px;
+    height: 40px;
+    list-style: none;
+    border: 1px solid white;
+    background-color: #6c89ba;
+}
+.checkboxButton{
+    /*margin: 2px;*/
+    width: 15%;
+    /*height: 40px;*/
+    padding: 10px;
+}
+.get-list{
+    margin: 0px;
+    list-style: none;
+}
