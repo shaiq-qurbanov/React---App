@@ -79,7 +79,7 @@ const About=()=> {
 
                   < div className="main" >
                       <h1>Transactions</h1>
-                     {/*<Transactions posts={yearsObj} />*/}
+                     <Transactions posts={transactionObjects} icon={icon} />
 
                       <Filter selectedYear={selectedYear} whichYear={whichYear} transactionObjects={transactionObjects}  />
                       {/*{showDetail}*/}
