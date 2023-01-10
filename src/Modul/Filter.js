@@ -2,17 +2,19 @@ import React, {useState} from "react";
 import '../About.css';
 import ShowDetails from "../Modul/ShowDetails";
 
-const Filter=({ selectedYear})=>{
+const Filter=({op,arr})=>{
+    console.log('array',arr)
+
 
     return (
 
             <div className="filter">
 
-                {selectedYear.map((year, index) => (
-                    <ul className="get-list">
-                        <li>{year.price}</li>
-                    </ul>
-                ))}
+                {
+                    arr.map((item, index)=>(
+                      <div className="filter-block" key={index}>price : {item}$</div>
+                    ))
+                }
             </div>
 
 

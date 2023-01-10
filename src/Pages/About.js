@@ -1,7 +1,7 @@
 import React, {useEffect, useLayoutEffect} from "react";
 import '../Modul/ShowDetails';
 import '../Modul/Filter'
-import { useState } from 'react';
+import { useState, createContext, useContext } from "react";
 import '../About.css';
 import '../Modul/Transactions';
 import icon from '../images/Vector.jpg'
@@ -13,20 +13,7 @@ import Array from "../Modul/Array";
 import Checkbox from "../Modul/Checkbox"
 
 const About=()=> {
-    //{ id : 1, year:2019, name: 'alma',price:15,quantity: 500 },
-    // const transactionsArray = [
-    //    { id : 1, year:2019, saleDate : '2019', amount : 70090, img: icon,number:true },
-    //     { id : 2, year:2020, saleDate : '20201', amount: 90090, img: icon, number:true },
-    //     { id : 3, year:2021, saleDate : '2021', amount: 80070, img: icon, number:true },
-    //     { id : 4, year:2022, saleDate: '2022', amount: 260090, img: icon, number:true}
-    //
-    // ]
-    // const details = [
-    //     {id: 2019, 'name': 'alma','price':15+'$', 'quantity': 500+"kg",'total':7500+"$"},
-    //     {id: 2020, 'name': 'armud','price':20+"$", 'quantity': 500+"kg",'total':10000+"$"},
-    //     {id: 2021, 'name': 'heyva','price':15+'$', 'quantity': 500+"kg",'total':7500+"$"},
-    //     {id: 2022, 'name': 'xurma','price':25+"$", 'quantity': 500+'kg','total':12500+"$"}
-    // ]
+
     const transactionObjects = {
         2019: [
              {id: '19#apple', name: 'apple', price:4, quantity: 700},
@@ -58,12 +45,27 @@ const About=()=> {
 
     const [whichYear, setWhichYear] = useState(null)
     const [selectedYear, setSelectedYear] = useState([])
-
+    const [op, setOp] = useState(false)
+    const [show, setShow] = useState(false)
+    const [arr, setArr]  = useState([])
+    console.log('about',arr)
+    const element = document.getElementById('red')
     const getYear = (year) => {
         setWhichYear(year)
+        setShow(true)
+        setShow(true)
+        // element.classList.add('myStyle')
     }
     console.log(999,{whichYear})
 
+    const getItem=()=>{
+        setOp(!op)
+        console.log(555)
+    }
+    const deleteItem=()=>{
+        setArr([])
+        console.log('delete', arr)
+    }
 
     useEffect(()=> {
         for(let prop in transactionObjects){
@@ -73,20 +75,19 @@ const About=()=> {
         }
     },[whichYear])
 
-
       return (
           <>
 
                   < div className="main" >
                       <h1>Transactions</h1>
                      <Transactions posts={transactionObjects} icon={icon} />
+                     <Filter arr={arr} op={op} />
+                     <Checkbox getItem={getItem} op={op} arr={arr} whichYear={whichYear}
+                       show={show}  getYear={getYear} getKeys={getKeys} selectedYear={selectedYear}
+                     deleteItem={deleteItem}/>
 
-                      <Filter selectedYear={selectedYear} whichYear={whichYear} transactionObjects={transactionObjects}  />
-                      {/*{showDetail}*/}
-                      <Checkbox getYear={getYear}   getKeys={getKeys} />
-                      {/*<Array/>*/}
 
-                  </div> 
+                  </div>
               </>
       )
 }

@@ -52,19 +52,20 @@ h1{
     background-color: #3f4e62;
 }
 
-.show-item {
-    display: flex;
-    border: 1px solid white;
-    margin-left: 20px;
-    width: 600px;
-    /* height: 50px; */
-    margin-top: 0px;
-    background-color: #6666af;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-}
+/*.show-item {*/
+/*    display: flex;*/
+/*    border: 1px solid white;*/
+/*    margin-left: 20px;*/
+/*    width: 600px;*/
+/*    !* height: 50px; *!*/
+/*    margin-top: 0px;*/
+/*    background-color: #6666af;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    flex-wrap: wrap;*/
+/*}*/
 .filter{
+
     margin-top: 20px;
     margin-bottom: 10px;
     width: 600px;
@@ -73,7 +74,16 @@ h1{
     background-color: #8db4f6;
     text-align: center;
     padding: 40px;
-    /*position: absolute;*/
+    display: inline-block;
+    overflow: auto;
+}
+.filter-block{
+    display: inline;
+    width: 95px;
+    height: 5px;
+    padding: 0px 55px 0 55px;
+    background: white;
+    border-radius: 5px;
 }
 .details{
     text-align: center;
@@ -118,7 +128,8 @@ h1{
     text-align: center;
     color: white;
 }
-.filter-list{
+.checkbox-list{
+    position: relative;
     margin-top: 0px;
     width: 600px;
     margin-left: 20px;
@@ -128,20 +139,85 @@ h1{
     list-style: none;
     background-color: #6c89ba;
 }
-.filter-li{
-    width: 600px;
+.checkbox-li{
+    width: 350px;
     height: 40px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
     list-style: none;
     border: 1px solid white;
     background-color: #6c89ba;
 }
+
 .checkboxButton{
     /*margin: 2px;*/
     width: 15%;
     /*height: 40px;*/
     padding: 10px;
 }
+.list-items{
+    display: flex;
+    flex-direction: row;
+}
 .get-list{
     margin: 0px;
-    list-style: none;
+    /*list-style: none;*/
+}
+.get-list li{
+    padding: 10px;
+    display: inline;
+    position: relative;
+    float: left;
+}
+.apply{
+    width: 130px;
+    height: 100%;
+    background: #1e416d;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.apply-btn{
+    width: 80px;
+    height: 26px;
+    border: 1px solid #2820ad;
+    background:  #6c89ba;
+    border-radius: 10%;
+    margin-left: 35px;
+
+}
+p{
+    margin: 0px;
+}
+.open-list{
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: space-around;
+}
+.list-items div{
+    display: flex;
+    flex-direction: column;
+}
+.one{
+    display: flex;
+    justify-content: space-around;
+}
+.lab{
+    display: flex;
+     cursor: pointer;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+}
+.inp{
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    background: #1e416d;
+    padding-right: 0;
+}
+.myStyle{
+    background: red;
 }

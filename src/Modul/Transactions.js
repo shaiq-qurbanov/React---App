@@ -33,8 +33,8 @@ const Transactions = ({posts,icon}) => {
               {
                   arr.map((item, index)=>(
                       <>
-                      <div key={index} className="items">
-                      <div > name : {item.name }  ,   price :  {item.price}</div>
+                      <div  className="items">
+                      <div key={index}> name : {item.name }  ,   price :  {item.price}</div>
                       <button  onClick={()=>openDrop(item)}><img src={icon} alt={""} width={10} height={10}/></button>
                       </div>
                       {op && item.id===num && <Drop el={el}/>}
