@@ -7,13 +7,15 @@ import Drop from "./Drop";
 const Transactions = ({posts,icon}) => {
     const [el, setEl]=useState({})
     const [op,setOp]=useState(false)
-    const [num, setNum]=useState(null)
-    const openDrop=(data)=>{
-        setNum(data.id)
+    const [open,setOpen] =useState(false)
+    const [num, setNum]=useState( false)
+
+    const openDrop=(event,data)=>{
         setOp(!op)
+        event.target.classList.toggle('rotate')
+        setNum(data.id)
+        setOpen(true)
         setEl(data)
-        console.log('drop',el)
-        console.log(111, op)
     }
 
 
@@ -22,11 +24,10 @@ const Transactions = ({posts,icon}) => {
     for(let i = 0; i < objects.length; i++){
         for(let j = 0; j < objects[i].length; j++){
             arr.push(objects[i][j])
-            // console.log(3333,objects[i][j]);
         }
     }
-    // console.log('arr',arr)
 
+console.log(7777777,arr)
     return(
                  <div className="transactions" >
 
@@ -35,7 +36,7 @@ const Transactions = ({posts,icon}) => {
                       <>
                       <div  className="items">
                       <div key={index}> name : {item.name }  ,   price :  {item.price}</div>
-                      <button  onClick={()=>openDrop(item)}><img src={icon} alt={""} width={10} height={10}/></button>
+                      <button  onClick={(event)=>openDrop(event,item)}><img src={icon} width={10} height={10}  alt={""}/></button>
                       </div>
                       {op && item.id===num && <Drop el={el}/>}
               </>

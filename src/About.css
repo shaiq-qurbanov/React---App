@@ -11,7 +11,7 @@ h1{
     color: #6c89ba;
 }
 .transactions{
-    height: 200px;
+    /*height: 200px;*/
     color: white;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@ h1{
     margin-left: 20px;
     width: 600px;
     background-color: #6c89ba;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 .items{
     display: flex;
@@ -52,38 +52,36 @@ h1{
     background-color: #3f4e62;
 }
 
-/*.show-item {*/
-/*    display: flex;*/
-/*    border: 1px solid white;*/
-/*    margin-left: 20px;*/
-/*    width: 600px;*/
-/*    !* height: 50px; *!*/
-/*    margin-top: 0px;*/
-/*    background-color: #6666af;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*    flex-wrap: wrap;*/
-/*}*/
-.filter{
+.img{
+    width: 25px;
+    height: 25px;
 
-    margin-top: 20px;
-    margin-bottom: 10px;
+}
+.rotate{
+    transform: rotateX(180deg);
+}
+.pagination{
     width: 600px;
-    height: 140px;
     margin-left: 20px;
     background-color: #8db4f6;
-    text-align: center;
-    padding: 40px;
+    padding: 8px;
     display: inline-block;
-    overflow: auto;
+}
+.filter{
+    margin-left: 20px;
+    background-color: #8db4f6;
+    width: 600px;
+    padding: 8px;
+    /*display: inline-block;*/
 }
 .filter-block{
     display: inline;
     width: 95px;
     height: 5px;
-    padding: 0px 55px 0 55px;
+    padding: 0px 15px 0 15px;
     background: white;
     border-radius: 5px;
+    margin: 10px;
 }
 .details{
     text-align: center;
@@ -140,10 +138,11 @@ h1{
     background-color: #6c89ba;
 }
 .checkbox-li{
+
     width: 350px;
-    height: 40px;
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
     list-style: none;
     border: 1px solid white;
     background-color: #6c89ba;
@@ -155,9 +154,18 @@ h1{
     /*height: 40px;*/
     padding: 10px;
 }
-.list-items{
+.check{
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+}
+/*.list-items{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
+.list-items div{
+   display: flex;
+flex-direction: row;
+
 }
 .get-list{
     margin: 0px;
@@ -218,6 +226,12 @@ p{
     background: #1e416d;
     padding-right: 0;
 }
-.myStyle{
-    background: red;
+.pagination ul{
+    margin-top: 2px;
+    list-style: none;
+}
+.pagination li{
+    float: left;
+    margin: 5px;
+
 }
