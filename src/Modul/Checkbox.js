@@ -1,15 +1,17 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Array from "./Array";
 import '../About.css';
 import Apply from "./Apply";
 import OpenList from "./OpenList";
-const Checkbox=({getKeys, getYear,selectedYear,arr, show, whichYear, op, getItem, deleteItem, icon})=>{
-        const [check,setCheck]=useState(false)
+const Checkbox=({getKeys, getYear, setOp,setShow,setArr,setCheckedState, arr, checkedState})=>{
 
+        const [check,setCheck]=useState(false)
 
         const openCheckbox=()=>{
                 setCheck(!check)
+                setShow(false)
         }
+
 
 return(
     <>
@@ -21,28 +23,20 @@ return(
 
                     {getKeys.map((year,index)=>(
                         <>
-                                <div>
-                                        <div id="red" className="checkbox-li"  ><div>{year}</div> <div  onClick={()=> getYear(year)} key={index}><img src={icon} width={30} height={25}/></div></div>
-
-                                        {/*<div>*/}
-                                        {/*        { year===whichYear && <OpenList arr={arr} selectedYear={selectedYear}/>}*/}
-
-                                        {/*</div>*/}
-
-                                </div>
+                                <>
+                                        <div id="red" className="checkbox-li" >
+                                            <div key={year}>{year}</div>
+                                                <input type="checkbox" checked={checkedState[index]} onChange={()=>getYear(year,index)}/>
+                                        </div>
+                                </>
 
                         </>
                     ))}
 
 
-                    <Apply getItem={getItem} deleteItem={deleteItem} op={op} />
+                    <Apply setArr={setArr} arr={arr} setOp={setOp} setShow={setShow} setCheckedState={setCheckedState} getKeys={getKeys} />
             </div>}
 
     </>)
 }
 export default Checkbox
-{/*<input  className="inp" type="checkbox"   />*/}
-{/*<div>*/}
-{/*        {show && year===whichYear && <OpenList icon={icon} arr={arr} selectedYear={selectedYear}/>}*/}
-
-{/*</div>*/}

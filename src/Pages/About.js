@@ -53,13 +53,14 @@ const About=()=> {
 
     const objects = Object.values(transactionObjects)
     const getKeys = Object.keys(transactionObjects);
-
+    const [op, setOp] = useState(false)
     const [whichYear, setWhichYear] = useState(null)
     const [selectedYear, setSelectedYear] = useState([])
-    const [op, setOp] = useState(false)
+    const [checkedState, setCheckedState] = useState([...getKeys].fill(false))
     const [show, setShow] = useState(false)
     const [arr, setArr]  = useState([])
 
+        //Pagination
     // Пользователь сейчас находится на этой странице
     const [currentPage, setCurrentPage] = useState(1);
 // Количество записей, отображаемых на каждой странице
@@ -67,34 +68,27 @@ const About=()=> {
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 
-
-
     const array=[]
     for(let i = 0; i < objects.length; i++){
         for(let j = 0; j < objects[i].length; j++){
             array.push(objects[i][j])
         }
     }
-console.log(array)
+
 
     const currentRecords = array.slice(indexOfFirstRecord,indexOfLastRecord)
     const nPages = Math.ceil(array.length/recordsPerPage);
 
-console.log('n',nPages)
 
-    const getYear = (year) => {
-        setWhichYear(year)
-        setShow(true)
-
+    const getYear = (year,data) => {
+        const updateSetChecked=checkedState.map((item,index)=>
+            index===data ? !item : item
+        )
+        setCheckedState(updateSetChecked)
+            setWhichYear(year)
+            setShow(false)
     }
 
-    const getItem=()=>{
-        setOp(!op)
-    }
-    const deleteItem=()=>{
-        setArr([])
-        setShow(false)
-    }
 
     useEffect(()=> {
         for(let prop in transactionObjects){
@@ -102,20 +96,22 @@ console.log('n',nPages)
                 setSelectedYear(transactionObjects[prop])
             }
         }
+
     },[whichYear])
+
       return (
           <>
 
                   < div className="main" >
                      <h1>Transactions</h1>
                      {/*<Transactions posts={transactionObjects} icon={icon} />*/}
-                     <SecondTrans currentRecords={currentRecords}/>
+                     <SecondTrans objects={objects} icon={icon} currentRecords={currentRecords}/>
                      <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-                     <Filter show={show} arr={arr} op={op} />
+                     <Filter selectedYear={selectedYear} setArr={setArr} arr={arr} op={op} show={show} whichYear={whichYear} transactionObjects={transactionObjects} />
                       {/*{ whichYear && <Filter arr={arr} selectedYear={selectedYear}/>}*/}
-                     <Checkbox getItem={getItem} op={op} arr={arr} whichYear={whichYear}
-                      show={show}  getYear={getYear} getKeys={getKeys} selectedYear={selectedYear}
-                      deleteItem={deleteItem} icon={icon}/>
+                     <Checkbox  setOp={setOp} arr={arr} whichYear={whichYear}
+                      setShow={setShow}  getYear={getYear} getKeys={getKeys} selectedYear={selectedYear}
+                       icon={icon} setArr={setArr} setCheckedState={setCheckedState} checkedState={checkedState}/>
 
 
                   </div>

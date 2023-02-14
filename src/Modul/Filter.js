@@ -2,18 +2,26 @@ import React, {useEffect, useState} from "react";
 import '../About.css';
 import ShowDetails from "../Modul/ShowDetails";
 
-const Filter=({show,arr})=>{
+const Filter=({show, arr, selectedYear, setArr,op})=>{
+
+    useEffect(()=>{
+            setArr([...arr,...selectedYear])
+    },[selectedYear])
+    // console.log(555,arr)
+
     return (
 
             <div className="filter">
 
-                {
-                    arr.map((item, index)=>(
-                      <div className="filter-block" key={index}> {item.id}$</div>
-
-                    ))
+                {show &&
+               arr.map(item=>(
+                   <>
+                       <p className="filter-block" key={item.id}> {item.id }: { item.price}$</p>
+                    {/*<br/>*/}
+                    </>
+               ))
                 }
-                {!show && <div>No Transaction found</div>}
+                {show===false && <div className="alert">No Transaction found</div>}
             </div>
 
 

@@ -1,10 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import '../About.css';
-const Apply=({getItem, deleteItem})=>{
+const Apply=({setArr,setShow, getKeys, setCheckedState})=>{
+
+    const showItems=()=>{
+        setShow(true)
+    }
+
+    const Cancel=()=>{
+        setArr([])
+        setShow(false)
+        setCheckedState([...getKeys].fill(false))
+    }
+
     return(
         <div className="apply">
-            <button onClick={()=>getItem()} className="apply-btn" >Apply</button>
-            <button className="apply-btn" onClick={()=>deleteItem()}>Cancel</button>
+            <button onClick={()=>showItems()} className="apply-btn" >Apply</button>
+            <button className="apply-btn" onClick={()=>Cancel()}>Cancel</button>
         </div>
     )
 }

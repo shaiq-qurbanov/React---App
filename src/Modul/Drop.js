@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import './Transactions';
 import '../About.css'
-const Drop=({el}) => {
+const Drop=({itemId, itemPrice, itemQuantity}) => {
     return(
 
-    <div key={el.id} className="dropdown">
-        <p>{el.name}</p>
+    <div  className="dropdown">
+            <div>ID : {itemId} </div>
+            <div>PRICE:  {itemPrice}</div>
+            <div>QUANTITY:{itemQuantity}</div>
+        <div>xx</div>
     </div>
     )
 }
