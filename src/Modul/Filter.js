@@ -3,6 +3,7 @@ import '../About.css';
 import ShowDetails from "../Modul/ShowDetails";
 
 const Filter=({show, arr, selectedYear, setArr,op})=>{
+    const [x, setX]=useState([])
 
     useEffect(()=>{
             setArr([...arr,...selectedYear])

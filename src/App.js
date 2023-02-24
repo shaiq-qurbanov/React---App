@@ -5,6 +5,7 @@ import Tools from "./Pages/Tools";
 import Home from "./Pages/Home";
 import './App.css';
 function App() {
+    const arr = [1,2,3,4]
 
   return (
       <>
@@ -13,11 +14,14 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/tools">Tools</Link>
+
+          <Link to="/tools">Add Receipt</Link>
       </header>
           <Routes>
-              <Route path="/" element={<Home/>}/>
+              <Route path="/" element={<Home arr={arr}/>}/>
               <Route path="/about" element={<About/>}/>
               <Route path="/tools" element={<Tools/>}/>
+
           </Routes>
           </>
   );

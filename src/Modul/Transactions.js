@@ -34,10 +34,12 @@ console.log(7777777,arr)
               {
                   arr.map((item, index)=>(
                       <>
-                      <div  className="items">
-                      <div key={index}> name : {item.name }  ,   price :  {item.price}</div>
-                      <button  onClick={(event)=>openDrop(event,item)}><img src={icon} width={10} height={10}  alt={""}/></button>
+                      {/*<div  className="items">*/}
+                      <div className="transactions-item">
+                          <div className=" item-1"key={index}> name : {item.name }  ,   price :  {item.price}</div>
+                          <div className="item-2" onClick={(event)=>openDrop(event,item)}><img src={icon} width={10} height={10}  alt={""}/></div>
                       </div>
+                      {/*</div>*/}
                       {op && item.id===num && <Drop el={el}/>}
               </>
                           ))
